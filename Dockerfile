@@ -1,5 +1,5 @@
 FROM centos:latest
-MAINTAINER peter "990979940@qq.com"
+MAINTAINER json "2398663465@qq.com"
 RUN groupadd -r redis && useradd  -r -g redis redis
 RUN  yum -y update &&  yum -y install epel-release \
 &&   yum -y install redis  && yum -y install wget \
@@ -9,7 +9,7 @@ RUN wget https://rubygems.org/downloads/redis-4.1.0.gem  &&  gem install -l ./re
 &&  rm -f redis-4.1.0.gem
 COPY  ./config/redis-trib.rb  /usr/bin
 COPY  ./config/redis.sh       /usr/bin
-RUN  mkdir -p /config  && chmod  775  /usr/bin/redis.sh
+RUN  mkdir -p /config  && chmod  777  /usr/bin/redis.sh
 
 
 
